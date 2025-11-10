@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak & Reservasi - WisataKu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* Contact page specific styles */
+        .contact-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://source.unsplash.com/1600x900/?indonesia-travel') center/cover;
+            padding: 6rem 0;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            background: #e0e7ff;
+            padding: 0.8rem;
+            border-radius: 50%;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Map container */
+        .map-container {
+            margin-top: 3rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        /* Working Hours */
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        /* Animation for success message */
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .success-message {
+            display: none;
+            background: #dcfce7;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            animation: slideIn 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">WisataKu</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="destinations.html">Destinasi</a></li>
+                        <li><a href="spotlights.html">Spotlight</a></li>
+                        <li><a href="packages.html">Paket</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Hubungi Kami</h1>
+            <p>Ada pertanyaan atau ingin reservasi? Kami siap membantu Anda 24/7</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Informasi Kontak</h2>
+                
+                <div class="contact-card">
+                    <i class='bx bx-map contact-icon'></i>
+                    <div>
+                        <h3>Alamat</h3>
+                        <p>Jl. lombok no. 17. 123<br>bandung tengah 11472</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class='bx bx-phone contact-icon'></i>
+                    <div>
+                        <h3>Telepon</h3>
+                        <p>+62 812 3456 7890 (WhatsApp)<br>021 - 555 6789</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class='bx bx-envelope contact-icon'></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@wisataku.example<br>reservasi@wisataku.example</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class='bx bx-time contact-icon'></i>
+                    <div>
+                        <h3>Jam Kerja</h3>
+                        <ul class="hours-list">
+                            <li><span>Senin - Jumat</span> <span>08:00 - 20:00</span></li>
+                            <li><span>Sabtu</span> <span>09:00 - 18:00</span></li>
+                            <li><span>Minggu</span> <span>10:00 - 16:00</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-twitter'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Kirim Pesan atau Reservasi</h2>
+                <form id="contactForm" onsubmit="return handleSubmit(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">No. Telepon</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <select id="subject" required>
+                                <option value="">Pilih Subjek</option>
+                                <option value="reservation">Reservasi Wisata</option>
+                                <option value="information">Informasi Paket</option>
+                                <option value="support">Bantuan</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group form-full">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%">Kirim Pesan</button>
+                    <div id="successMessage" class="success-message">
+                        Terima kasih! Pesan Anda telah terkirim. Kami akan menghubungi Anda segera.
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.1234567890123!2d107.6098103153312!3d-6.914744995021456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6501234567%3A0xabcdef1234567890!2sJl.%20Lombok%20No.17%2C%20Bandung%20Tengah%2C%20Kota%20Bandung%2C%20Jawa%20Barat%2041472%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>WisataKu</h3>
+                    <p>Jelajahi keindahan Indonesia bersama kami</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Destinasi</h3>
+                    <ul>
+                        <li><a href="destinations/bali.html">Bali</a></li>
+                        <li><a href="destinations/raja-ampat.html">Raja Ampat</a></li>
+                        <li><a href="destinations/borobudur.html">Borobudur</a></li>
+                        <li><a href="destinations.html">Semua Destinasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="packages.html">Paket Wisata</a></li>
+                        <li><a href="transportation.html">Transportasi</a></li>
+                        <li><a href="accommodation.html">Akomodasi</a></li>
+                        <li><a href="guides.html">Pemandu Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Simulate form submission
+            const successMessage = document.getElementById('successMessage');
+            const form = document.getElementById('contactForm');
+            
+            // Show success message with animation
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            form.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+            
+            return false;
+        }
+
+        // Add floating effect to contact cards
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.transform = `perspective(1000px) rotateX(${(y - rect.height/2)/20}deg) rotateY(${-(x - rect.width/2)/20}deg) translateY(-2px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

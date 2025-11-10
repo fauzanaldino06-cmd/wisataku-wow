@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="foto projek/thomyorke.jpg" type="image/x-icon">
+    <title>WisataKu - Jelajahi Keindahan Indonesia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .hero-slider {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            opacity: 1;
+            transform: translateX(-100%);
+        }
+
+        .kuliner-menu {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .kuliner-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .kuliner-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .kuliner-link i {
+            font-size: 1.25rem;
+        }
+
+        .social-media {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 0.75rem;
+        }
+
+        .social-media h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+            background: #1e40af;
+        }
+
+        .social-link i {
+            font-size: 1.5rem;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .search-box {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            margin-top: -4rem;
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .spot-card {
+            transform-style: preserve-3d;
+            transition: transform 5s;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .spot-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+
+        .spot-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .spot-card:hover .spot-img {
+            transform: scale(1.1);
+        }
+
+        .spot-content {
+            padding: 1.5rem;
+        }
+
+        .categories {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f6f8fc 0%, #ffffff 100%);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            padding: 6rem 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://source.unsplash.com/1600x900/?indonesia-landscape') center/cover fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-number {
+            animation: countUp 4s ease-out forwards;
+        }
+
+        .testimonials {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .rating {
+            color: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .newsletter {
+            padding: 4rem 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            z-index: 100;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab i {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 70vh;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">WisataKu</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="destinations.html">Destinasi</a></li>
+                        <li><a href="spotlights.html">Spotlight</a></li>
+                        <li><a href="packages.html">Paket</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('foto projek/indonesia_orig.png')">
+            <div class="slide-content">
+                <div class="container">
+                    <h1>Jelajahi Keindahan Indonesia</h1>
+                    <p>Temukan destinasi wisata menakjubkan, pengalaman unik, dan petualangan tak terlupakan</p>
+                    <a href="destinations.html" class="btn btn-primary">Mulai Petualangan</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('foto projek/rajaampat.jpg')">
+            <div class="slide-content">
+                <div class="container">
+                    <h1>Surga Wisata Raja Ampat</h1>
+                    <p>Jelajahi keindahan bawah laut dengan lebih dari 1.500 spesies ikan</p>
+                    <a href="destinations/raja-ampat.html" class="btn btn-primary">Explore Raja Ampat</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('foto projek/Borobudur.jpg')">
+            <div class="slide-content">
+                <div class="container">
+                    <h1>Warisan Budaya Borobudur</h1>
+                    <p>Nikmati sunrise menakjubkan di candi Buddha terbesar dunia</p>
+                    <a href="destinations/borobudur.html" class="btn btn-primary">Explore Borobudur</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <div class="container">
+        <div class="search-box">
+            <form class="search-form">
+                <div>
+                    <label>Destinasi</label>
+                    <input type="text" placeholder="Ke mana Anda ingin pergi?" required>
+                </div>
+                <div>
+                    <label>Tanggal</label>
+                    <input type="date" required>
+                </div>
+                <div>
+                    <label>Tamu</label>
+                    <select required>
+                        <option>1 Orang</option>
+                        <option>2 Orang</option>
+                        <option>3+ Orang</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Cari</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kategori Wisata</h2>
+                <p>Pilih kategori wisata sesuai minat Anda</p>
+            </div>
+            <div class="category-grid">
+                <a href="destinations.html#pantai" class="category-card">
+                    <i class='bx bx-swim category-icon'></i>
+                    <h3>Wisata Pantai</h3>
+                    <p>Nikmati keindahan pantai tropis Indonesia</p>
+                </a>
+                <a href="destinations.html#alam" class="category-card">
+                    <i class='bx bx-landscape category-icon'></i>
+                    <h3>Wisata Alam</h3>
+                    <p>Jelajahi keindahan alam yang menakjubkan</p>
+                </a>
+                <a href="destinations.html#budaya" class="category-card">
+                    <i class='bx bx-buildings category-icon'></i>
+                    <h3>Wisata Budaya</h3>
+                    <p>Telusuri warisan budaya nusantara</p>
+                </a>
+                <div class="category-card">
+                    <i class='bx bx-dish category-icon'></i>
+                    <h3>Wisata Kuliner</h3>
+                    <p>Jelajahi kelezatan kuliner nusantara di berbagai kota</p>
+                    <div class="kuliner-menu">
+                        <a href="destinations/kuliner-malang.html" class="kuliner-link">
+                            <i class='bx bx-map-pin'></i>
+                            <span>Kuliner Malang</span>
+                        </a>
+                        <a href="destinations/kuliner-yogya.html" class="kuliner-link">
+                            <i class='bx bx-map-pin'></i>
+                            <span>Kuliner Yogyakarta</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="spotlights">
+        <div class="container">
+            <div class="section-title">
+                <h2>Spotlight Destinasi</h2>
+                <p>Temukan tempat-tempat menakjubkan untuk liburan Anda berikutnya</p>
+            </div>
+            <div class="spots-grid">
+                <!-- Spot 1 -->
+                <div class="spot-card">
+                    <img src="foto projek/cewebali.jpg" alt="Bali" class="spot-img">
+                    <div class="spot-content">
+                        <h3 class="spot-title">Bali</h3>
+                        <p class="spot-desc">Pulau Dewata dengan keindahan alam dan budaya yang memukau</p>
+                        <a href="bali.html" class="btn btn-secondary">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Spot 2 -->
+                <div class="spot-card">
+                    <img src="foto projek/rajaampat.jpg" alt="Raja Ampat" class="spot-img">
+                    <div class="spot-content">
+                        <h3 class="spot-title">Raja Ampat</h3>
+                        <p class="spot-desc">Surga bawah laut dengan keindahan terumbu karang</p>
+                        <a href="raja-ampat.html" class="btn btn-secondary">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Spot 3 -->
+                <div class="spot-card">
+                    <img src="foto projek/Borobudur.jpg" alt="Borobudur" class="spot-img">
+                    <div class="spot-content">
+                        <h3 class="spot-title">Borobudur</h3>
+                        <p class="spot-desc">Candi Buddha terbesar di dunia dengan arsitektur menakjubkan</p>
+                        <a href="borobudur.html" class="btn btn-secondary">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mengapa Memilih Kami?</h2>
+                <p>Kami menawarkan pengalaman perjalanan terbaik untuk Anda</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class='bx bx-check-shield feature-icon'></i>
+                    <h3>Terpercaya</h3>
+                    <p>Jaminan keamanan dan kenyamanan selama perjalanan Anda</p>
+                </div>
+                <div class="feature-card">
+                    <i class='bx bx-money feature-icon'></i>
+                    <h3>Harga Terbaik</h3>
+                    <p>Penawaran harga kompetitif untuk setiap destinasi</p>
+                </div>
+                <div class="feature-card">
+                    <i class='bx bx-support feature-icon'></i>
+                    <h3>24/7 Dukungan</h3>
+                    <p>Tim support kami siap membantu Anda kapan saja</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="animate-number">5000+</h3>
+                    <p>Wisatawan Puas</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="animate-number">100+</h3>
+                    <p>Destinasi Wisata</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="animate-number">50+</h3>
+                    <p>Paket Tour</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="animate-number">24/7</h3>
+                    <p>Dukungan Customer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Mereka?</h2>
+                <p>Testimoni dari wisatawan kami</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="foto projek/oranghitam.jpg" alt="Avatar" class="testimonial-avatar">
+                        <div>
+                            <h4>agus sutardi</h4>
+                            <p>Traveler Enthusiast</p>
+                        </div>
+                    </div>
+                    <p>"Pengalaman liburan terbaik! Tour guide sangat profesional dan helpful. Akan kembali lagi!"</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="foto projek/sorachi-gintama-gorilla.gif" alt="Avatar" class="testimonial-avatar">
+                        <div>
+                            <h4>nabil lukman 72</h4>
+                            <p>Food Blogger</p>
+                        </div>
+                    </div>
+                    <p>"Paket wisata yang sangat worth it! Akomodasi nyaman dan makanan enak-enak."</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="foto projek/sakura.webp" alt="Avatar" class="testimonial-avatar">
+                        <div>
+                            <h4>rhain pelangi</h4>
+                            <p>Photography Enthusiast</p>
+                        </div>
+                    </div>
+                    <p>"Spot-spot fotonya keren banget! Pelayanan super ramah. Recommended!"</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="newsletter">
+        <div class="container">
+            <h2>Dapatkan Info Promo Terbaru</h2>
+            <p>Subscribe newsletter kami untuk mendapatkan update destinasi dan promo menarik</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Masukkan email Anda" required>
+                <button type="submit" class="btn btn-secondary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    
+    <a href="contact.html" class="fab">
+        <i class='bx bx-message-rounded-dots'></i>
+    </a>
+                <div class="feature-card">
+                    <i class='bx bx-support feature-icon'></i>
+                    <h3>24/7 Dukungan</h3>
+                    <p>Tim support kami siap membantu Anda kapan saja</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="social-media">
+        <div class="container">
+            <h3>Ikuti Kami</h3>
+            <div class="social-links">
+                <a href="https://instagram.com/wisataku" target="_blank" class="social-link" title="Instagram">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+                <a href="https://facebook.com/wisataku" target="_blank" class="social-link" title="Facebook">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="https://twitter.com/wisataku" target="_blank" class="social-link" title="Twitter">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>WisataKu</h3>
+                    <p>Jelajahi keindahan Indonesia bersama kami</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Destinasi</h3>
+                    <ul>
+                        <li><a href="destinations/bali.html">Bali</a></li>
+                        <li><a href="destinations/raja-ampat.html">Raja Ampat</a></li>
+                        <li><a href="destinations/borobudur.html">Borobudur</a></li>
+                        <li><a href="destinations.html">Semua Destinasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="packages.html">Paket Wisata</a></li>
+                        <li><a href="transportation.html">Transportasi</a></li>
+                        <li><a href="accommodation.html">Akomodasi</a></li>
+                        <li><a href="guides.html">Pemandu Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            
+            slides[currentSlide].classList.add('prev');
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            slides[currentSlide].classList.remove('prev');
+            
+            slides[currentSlide].classList.add('active');
+
+            setTimeout(() => {
+                slides.forEach((slide, index) => {
+                    if (index !== currentSlide) {
+                        slide.classList.remove('prev');
+                    }
+                });
+            }, 4000);
+        }
+
+        slides[0].classList.add('active');
+        setInterval(nextSlide, 4000);
+    </script>
+</body>
+</html>

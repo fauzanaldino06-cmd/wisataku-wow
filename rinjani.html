@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunung Rinjani - WisataKu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .destination-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('#') center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .category-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .category-tag {
+            padding: 0.25rem 1rem;
+            border-radius: 1rem;
+            background: var(--primary);
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .destination-content {
+            padding: 3rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .highlight-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 200px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .book-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">WisataKu</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="destinations.html">Destinasi</a></li>
+                        <li><a href="spotlights.html">Spotlight</a></li>
+                        <li><a href="packages.html">Paket</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="destination-hero">
+        <div class="container">
+            <h1>Gunung Rinjani</h1>
+            <p>Gunung Tertinggi Kedua di Indonesia dengan Keindahan Danau Kawah</p>
+            <div class="category-tags">
+                <span class="category-tag">Wisata Alam</span>
+                <span class="category-tag">Pendakian</span>
+                <span class="category-tag">Petualangan</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="destination-content">
+        <div class="container">
+            <a href="destinations.html" class="back-link">
+                <i class='bx bx-arrow-back'></i>
+                Kembali ke Destinasi
+            </a>
+
+            <div class="content-grid">
+                <div class="main-content">
+                    <section>
+                        <h2>Overview</h2>
+                        <p>Gunung Rinjani adalah gunung berapi aktif di Pulau Lombok, dengan ketinggian 3.726 meter di atas permukaan laut. Gunung ini menawarkan pengalaman pendakian menantang dengan pemandangan spektakuler, termasuk Danau Segara Anak yang terletak di dalam kaldera gunung.</p>
+                    </section>
+
+                    <section>
+                        <h2>Highlights</h2>
+                        <div class="highlights">
+                            <div class="highlight-item">
+                                <i class='bx bx-water highlight-icon'></i>
+                                <h3>Danau Segara Anak</h3>
+                                <p>Danau kawah yang menakjubkan</p>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-cloud highlight-icon'></i>
+                                <h3>Sunrise Point</h3>
+                                <p>Pemandangan matahari terbit</p>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-hot-spring highlight-icon'></i>
+                                <h3>Air Panas</h3>
+                                <p>Mata air panas alami</p>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-landscape highlight-icon'></i>
+                                <h3>Jalur Pendakian</h3>
+                                <p>Beragam rute pendakian</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Yang Harus Dilakukan</h2>
+                        <ul>
+                            <li>Mendaki ke puncak Rinjani</li>
+                            <li>Camping di tepi Danau Segara Anak</li>
+                            <li>Berendam di mata air panas</li>
+                            <li>Menikmati sunrise dari puncak</li>
+                            <li>Mengamati aktivitas gunung berapi</li>
+                            <li>Memancing di Danau Segara Anak</li>
+                            <li>Fotografi landscape</li>
+                            <li>Mengunjungi desa tradisional sekitar</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Galeri</h2>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="foto projek/rinjani selatan.jpg" alt="Gunung Rinjani">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="foto projek/rinjani sembalun.jpg" alt="Danau Segara Anak">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="foto projek/pohon ri jani.jpg" alt="Sunrise Rinjani">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="foto projek/tenda rinjani.jpg" alt="Camping Rinjani">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <aside>
+                    <div class="info-card">
+                        <h3>Informasi Penting</h3>
+                        <div class="info-item">
+                            <i class='bx bx-time info-icon'></i>
+                            <div>
+                                <strong>Waktu Terbaik</strong>
+                                <p>April - November (Musim Kemarau)</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-money info-icon'></i>
+                            <div>
+                                <strong>Budget per Hari</strong>
+                                <p>Rp 800.000 - Rp 2.000.000</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-map info-icon'></i>
+                            <div>
+                                <strong>Cara Menuju</strong>
+                                <p>Penerbangan ke Lombok, lanjut ke pos pendakian</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-time-five info-icon'></i>
+                            <div>
+                                <strong>Durasi Ideal</strong>
+                                <p>3-4 hari</p>
+                            </div>
+                        </div>
+                        <a href="booking.html?dest=rinjani" class="book-btn">Booking Sekarang</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>WisataKu</h3>
+                    <p>Jelajahi keindahan Indonesia bersama kami</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Destinasi</h3>
+                    <ul>
+                        <li><a href="bali.html">Bali</a></li>
+                        <li><a href="raja-ampat.html">Raja Ampat</a></li>
+                        <li><a href="borobudur.html">Borobudur</a></li>
+                        <li><a href="destinations.html">Semua Destinasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="packages.html">Paket Wisata</a></li>
+                        <li><a href="transportation.html">Transportasi</a></li>
+                        <li><a href="accommodation.html">Akomodasi</a></li>
+                        <li><a href="guides.html">Pemandu Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

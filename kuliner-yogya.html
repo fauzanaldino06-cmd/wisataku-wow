@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Kuliner Yogyakarta - WisataKu</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .destination-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://source.unsplash.com/1600x900/?yogyakarta-food') center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* Common styles reused from kuliner-malang.html */
+        .category-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .category-tag {
+            padding: 0.25rem 1rem;
+            border-radius: 1rem;
+            background: var(--primary);
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .destination-content {
+            padding: 3rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .food-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-content {
+            padding: 1.5rem;
+        }
+
+        .food-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .food-price {
+            color: #2563eb;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .food-rating {
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        .restaurant-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .restaurant-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .restaurant-name {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .restaurant-address {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0.25rem 0;
+        }
+
+        .restaurant-hours {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .book-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="../index.html" class="logo">WisataKu</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Beranda</a></li>
+                        <li><a href="../destinations.html">Destinasi</a></li>
+                        <li><a href="../spotlights.html">Spotlight</a></li>
+                        <li><a href="../packages.html">Paket</a></li>
+                        <li><a href="../booking.html">Booking</a></li>
+                        <li><a href="../about.html">Tentang</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="destination-hero">
+        <div class="container">
+            <h1>Wisata Kuliner Yogyakarta</h1>
+            <p>Kota Gudeg dengan Beragam Kuliner Tradisional</p>
+            <div class="category-tags">
+                <span class="category-tag">Wisata Kuliner</span>
+                <span class="category-tag">Makanan Tradisional</span>
+                <span class="category-tag">Street Food</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="destination-content">
+        <div class="container">
+            <a href="../destinations.html#kuliner" class="back-link">
+                <i class='bx bx-arrow-back'></i>
+                Kembali ke Destinasi Kuliner
+            </a>
+
+            <div class="content-grid">
+                <div class="main-content">
+                    <section>
+                        <h2>Overview</h2>
+                        <p>Yogyakarta adalah surga kuliner dengan beragam makanan tradisional yang telah ada sejak zaman kerajaan. Dari gudeg yang legendaris hingga angkringan yang tersebar di setiap sudut kota, Yogyakarta menawarkan pengalaman kuliner autentik dengan harga yang sangat terjangkau.</p>
+                    </section>
+
+                    <section>
+                        <h2>Kuliner Wajib Coba</h2>
+                        <div class="food-grid">
+                            <div class="food-card">
+                                <img src="https://source.unsplash.com/600x400/?indonesian-food" alt="Gudeg" class="food-image">
+                                <div class="food-content">
+                                    <h3 class="food-title">Gudeg Yu Djum</h3>
+                                    <p>Gudeg legendaris dengan nangka muda yang lembut</p>
+                                    <div class="food-price">Rp 25.000 - Rp 45.000</div>
+                                    <div class="food-rating">★★★★★</div>
+                                    <strong>Rekomendasi:</strong>
+                                    <ul class="restaurant-list">
+                                        <li class="restaurant-item">
+                                            <div class="restaurant-name">Gudeg Yu Djum</div>
+                                            <div class="restaurant-address">Jl. Wijilan No.31</div>
+                                            <div class="restaurant-hours">05:00 - 22:00</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="food-card">
+                                <img src="https://source.unsplash.com/600x400/?street-food" alt="Angkringan" class="food-image">
+                                <div class="food-content">
+                                    <h3 class="food-title">Angkringan Lik Man</h3>
+                                    <p>Angkringan legendaris dengan nasi kucing</p>
+                                    <div class="food-price">Rp 3.000 - Rp 15.000</div>
+                                    <div class="food-rating">★★★★★</div>
+                                    <strong>Rekomendasi:</strong>
+                                    <ul class="restaurant-list">
+                                        <li class="restaurant-item">
+                                            <div class="restaurant-name">Angkringan Lik Man</div>
+                                            <div class="restaurant-address">Jl. Wongsodirjan</div>
+                                            <div class="restaurant-hours">17:00 - 03:00</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="food-card">
+                                <img src="https://source.unsplash.com/600x400/?chicken-satay" alt="Sate Klathak" class="food-image">
+                                <div class="food-content">
+                                    <h3 class="food-title">Sate Klathak Pak Pong</h3>
+                                    <p>Sate kambing dengan tusukan besi khas Jogja</p>
+                                    <div class="food-price">Rp 20.000 - Rp 50.000</div>
+                                    <div class="food-rating">★★★★½</div>
+                                    <strong>Rekomendasi:</strong>
+                                    <ul class="restaurant-list">
+                                        <li class="restaurant-item">
+                                            <div class="restaurant-name">Sate Klathak Pak Pong</div>
+                                            <div class="restaurant-address">Jl. Imogiri Timur</div>
+                                            <div class="restaurant-hours">16:00 - 23:00</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Cafe & Restoran Viral</h2>
+                        <div class="food-grid">
+                            <div class="food-card">
+                                <img src="https://source.unsplash.com/600x400/?cafe-interior" alt="Cafe" class="food-image">
+                                <div class="food-content">
+                                    <h3 class="food-title">Tempo Gelato</h3>
+                                    <p>Cafe vintage dengan es krim artisanal</p>
+                                    <div class="food-price">Rp 30.000 - Rp 60.000</div>
+                                    <div class="food-rating">★★★★★</div>
+                                    <strong>Menu Favorit:</strong>
+                                    <ul>
+                                        <li>Es Krim Klepon</li>
+                                        <li>Affogato Jawa</li>
+                                        <li>Es Krim Kopi Jogja</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="food-card">
+                                <img src="https://source.unsplash.com/600x400/?restaurant-interior" alt="Restaurant" class="food-image">
+                                <div class="food-content">
+                                    <h3 class="food-title">Abhayagiri Restaurant</h3>
+                                    <p>Restoran dengan pemandangan Candi Borobudur</p>
+                                    <div class="food-price">Rp 100.000 - Rp 300.000</div>
+                                    <div class="food-rating">★★★★½</div>
+                                    <strong>Menu Favorit:</strong>
+                                    <ul>
+                                        <li>Nasi Goreng Kambing</li>
+                                        <li>Bebek Goreng Madura</li>
+                                        <li>Es Teler Royal</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Pusat Oleh-oleh</h2>
+                        <div class="food-grid">
+                            <div class="food-card">
+                                <img src="https://source.unsplash.com/600x400/?traditional-market" alt="Oleh-oleh" class="food-image">
+                                <div class="food-content">
+                                    <h3 class="food-title">Pusat Oleh-oleh Yogyakarta</h3>
+                                    <p>Tempat belanja oleh-oleh khas Yogya</p>
+                                    <strong>Rekomendasi:</strong>
+                                    <ul>
+                                        <li>Bakpia Pathuk</li>
+                                        <li>Yangko</li>
+                                        <li>Geplak</li>
+                                        <li>Gudeg Kaleng</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <aside>
+                    <div class="info-card">
+                        <h3>Informasi Kuliner</h3>
+                        <div class="info-item">
+                            <i class='bx bx-time info-icon'></i>
+                            <div>
+                                <strong>Waktu Terbaik</strong>
+                                <p>Pagi (Gudeg) & Malam (Angkringan)</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-money info-icon'></i>
+                            <div>
+                                <strong>Budget per Orang</strong>
+                                <p>Rp 30.000 - Rp 150.000</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-map info-icon'></i>
+                            <div>
+                                <strong>Area Kuliner</strong>
+                                <p>Malioboro, Wijilan, Prawirotaman</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bx-walk info-icon'></i>
+                            <div>
+                                <strong>Food Tour</strong>
+                                <p>Tersedia tur kuliner tradisional</p>
+                            </div>
+                        </div>
+                        <a href="../booking.html?tour=kuliner-yogya" class="book-btn">Booking Food Tour</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>WisataKu</h3>
+                    <p>Jelajahi keindahan Indonesia bersama kami</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Destinasi</h3>
+                    <ul>
+                        <li><a href="bali.html">Bali</a></li>
+                        <li><a href="raja-ampat.html">Raja Ampat</a></li>
+                        <li><a href="borobudur.html">Borobudur</a></li>
+                        <li><a href="../destinations.html">Semua Destinasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="../packages.html">Paket Wisata</a></li>
+                        <li><a href="../transportation.html">Transportasi</a></li>
+                        <li><a href="../accommodation.html">Akomodasi</a></li>
+                        <li><a href="../guides.html">Pemandu Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="../about.html">Tentang Kami</a></li>
+                        <li><a href="../contact.html">Kontak</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

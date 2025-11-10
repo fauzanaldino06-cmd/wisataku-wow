@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Spotlight Destinasi - WisataKu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .spotlight-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://source.unsplash.com/1600x900/?indonesia,landscape') center/cover;
+            padding: 6rem 0;
+            color: white;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .spotlight-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .spotlight-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .spotlight-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .spotlight-content {
+            padding: 1.5rem;
+        }
+        
+        .spotlight-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .rating {
+            color: #f59e0b;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">WisataKu</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="destinations.html">Destinasi</a></li>
+                        <li><a href="spotlights.html">Spotlight</a></li>
+                        <li><a href="packages.html">Paket</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="spotlight-hero">
+        <div class="container">
+            <h1>9 Destinasi Unggulan</h1>
+            <p>Temukan tempat-tempat menakjubkan yang wajib Anda kunjungi di Indonesia</p>
+        </div>
+    </section>
+
+    <section style="padding:1rem 0 2rem;">
+        <div class="container">
+            <div class="image-marquee" aria-hidden="true">
+                <div class="marquee-track">
+                    <img src="foto projek/cewebali.jpg" alt="bali">
+                    <img src="foto projek/perahu raja ampat.jpg"raja-ampat">
+                    <img src="foto projek/Borobudur.jpg" alt="borobudur">
+                    <img src="foto projek/gunung bromo.webp" alt="bromo">
+                    <img src="foto projek/lereng komodo.jpg" alt="komodo">
+                    <img src="foto projek/Danau-Toba.png" alt="toba">
+                    <img src="foto projek/wakatobi snorkling.jpg" alt="wakatobi">
+                    <img src="foto projek/tempat-wisata-dieng.jpg" alt="dieng">
+                    <img src="foto projek/derawan perahu.jpg" alt="derawan">
+                    <img src="foto projek/baliatas.webp" alt="bali">
+                    <img src="foto projek/rumah raja ampat.png" alt="raja-ampat">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    .image-marquee{ overflow:hidden; border-radius:12px; }
+    .marquee-track{ display:flex; gap:12px; align-items:center; animation:marquee 28s linear infinite; }
+    .marquee-track img{ width:280px; height:160px; object-fit:cover; border-radius:8px; flex:0 0 auto; }
+    .image-marquee:hover .marquee-track{ animation-play-state:paused; }
+    @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+    </style>
+
+    <section class="container" style="padding-bottom: 4rem;">
+        <div class="spots-grid">
+            <div class="spotlight-card">
+                <img src="foto projek/pexels-aronvisuals-1694621.jpg" alt="Bali" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Pantai Nusa Dua, Bali</h3>
+                    <p>Pantai eksotis dengan pasir putih dan resort mewah</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★★</div>
+                        <div class="price">Mulai Rp 2,5jt</div>
+                    </div>
+                    <a href="booking.html?dest=nusa-dua" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/love raja ampat.jpg" alt="Raja Ampat" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Raja Ampat, Papua</h3>
+                    <p>Surga diving dengan keindahan bawah laut menakjubkan</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★★</div>
+                        <div class="price">Mulai Rp 5jt</div>
+                    </div>
+                    <a href="booking.html?dest=raja-ampat" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/borobudur depan.jpg" alt="Borobudur" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Candi Borobudur</h3>
+                    <p>Warisan dunia dengan arsitektur Buddha yang megah</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★★</div>
+                        <div class="price">Mulai Rp 1,5jt</div>
+                    </div>
+                    <a href="booking.html?dest=borobudur" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/senja bromo.jpg" alt="Bromo" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Gunung Bromo</h3>
+                    <p>Sunrise yang legendaris di kaldera gunung berapi aktif</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★★</div>
+                        <div class="price">Mulai Rp 1,8jt</div>
+                    </div>
+                    <a href="booking.html?dest=bromo" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/bukit komodo.jpg" alt="Komodo" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Pulau Komodo</h3>
+                    <p>Habitat asli komodo dan pantai Pink yang menakjubkan</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★½</div>
+                        <div class="price">Mulai Rp 3,2jt</div>
+                    </div>
+                    <a href="booking.html?dest=komodo" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/cekung toba.jpg" alt="Danau Toba" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Danau Toba</h3>
+                    <p>Danau vulkanik terbesar di dunia dengan budaya Batak</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★½</div>
+                        <div class="price">Mulai Rp 2jt</div>
+                    </div>
+                    <a href="booking.html?dest=toba" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/taman-nasional-wakatobi.webp" alt="Wakatobi" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Wakatobi</h3>
+                    <p>Surga snorkeling dengan terumbu karang spektakuler</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★★</div>
+                        <div class="price">Mulai Rp 4jt</div>
+                    </div>
+                    <a href="booking.html?dest=wakatobi" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/The-Best-Sunrise-Dieng.png" alt="Dieng" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Dieng Plateau</h3>
+                    <p>Dataran tinggi dengan candi kuno dan kawah vulkanik</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★½</div>
+                        <div class="price">Mulai Rp 1,2jt</div>
+                    </div>
+                    <a href="booking.html?dest=dieng" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="spotlight-card">
+                <img src="foto projek/derawan hiu.jpg" alt="Derawan" class="spotlight-img">
+                <div class="spotlight-content">
+                    <h3>Kepulauan Derawan</h3>
+                    <p>Surga penyu dan danau ubur-ubur yang unik</p>
+                    <div class="spotlight-meta">
+                        <div class="rating">★★★★★</div>
+                        <div class="price">Mulai Rp 3,5jt</div>
+                    </div>
+                    <a href="booking.html?dest=derawan" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>WisataKu</h3>
+                    <p>Jelajahi keindahan Indonesia bersama kami</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Destinasi</h3>
+                    <ul>
+                        <li><a href="destinations/bali.html">Bali</a></li>
+                        <li><a href="destinations/raja-ampat.html">Raja Ampat</a></li>
+                        <li><a href="destinations/borobudur.html">Borobudur</a></li>
+                        <li><a href="destinations.html">Semua Destinasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="packages.html">Paket Wisata</a></li>
+                        <li><a href="transportation.html">Transportasi</a></li>
+                        <li><a href="accommodation.html">Akomodasi</a></li>
+                        <li><a href="guides.html">Pemandu Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

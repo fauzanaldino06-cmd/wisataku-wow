@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="thomyorke.jpg" type="image/x-icon">
+  <title>Destinasi - WisataKu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">WisataKu</a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="destinations.html">Destinasi</a></li>
+            <li><a href="spotlights.html">Spotlight</a></li>
+            <li><a href="packages.html">Paket</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="about.html">Tentang</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding:3rem 0;">
+    <div class="section-title">
+      <h1>Semua Destinasi</h1>
+      <p>Jelajahi berbagai destinasi Indonesia — pantai, gunung, budaya, dan petualangan alam.</p>
+    </div>
+
+    <div style="margin:1.5rem 0; text-align:center">
+      <input id="dest-search" placeholder="Cari destinasi (mis. Bali, Raja Ampat)" style="padding:0.8rem; width:60%; border-radius:8px; border:1px solid #ddd">
+    </div>
+
+    <div id="dest-grid" class="spots-grid">
+      <div class="spot-card" data-category="pantai budaya">
+        <img src="foto projek/baliatas.webp" alt="Bali" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Bali</h3>
+          <p class="spot-desc">Pulau Dewata — pantai, budaya, dan nightlife.</p>
+          <a href="bali.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="pantai alam">
+        <img src="foto projek/rajaampat.jpg"Raja Ampat" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Raja Ampat</h3>
+          <p class="spot-desc">Surga diving dan keanekaragaman laut.</p>
+          <a href="raja-ampat.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="budaya">
+        <img src="foto projek/Borobudur.jpg" alt="Borobudur" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Borobudur</h3>
+          <p class="spot-desc">Candi bersejarah dengan panorama magis saat sunrise.</p>
+          <a href="borobudur.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="alam">
+        <img src="foto projek/awan bromo.webp" alt="Bromo" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Gunung Bromo</h3>
+          <p class="spot-desc">Sunrise legendaris dan lautan pasir.</p>
+          <a href="bromo.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="pantai alam">
+        <img src="foto projek/lereng komodo.jpg" alt="Komodo" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Pulau Komodo</h3>
+          <p class="spot-desc">Habitat komodo dan pantai pink.</p>
+          <a href="komodo.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="alam budaya">
+        <img src="foto projek/toba senja.webp" alt="Danau Toba" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Danau Toba</h3>
+          <p class="spot-desc">Danau vulkanik terbesar dengan budaya lokal Batak.</p>
+          <a href="toba.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="pantai">
+        <img src="foto projek/taman-nasional-wakatobi.webp" alt="Wakatobi" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Wakatobi</h3>
+          <p class="spot-desc">Destinasi snorkeling kelas dunia.</p>
+          <a href="wakatobi.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="alam budaya">
+        <img src="foto projek/dieng.jpg" alt="Dieng" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Dieng Plateau</h3>
+          <p class="spot-desc">Dataran tinggi penuh misteri dan candi-candi kuno.</p>
+          <a href="dieng.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="pantai">
+        <img src="foto projek/derawan lonely.jpg" alt="Derawan" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Kepulauan Derawan</h3>
+          <p class="spot-desc">Rumah penyu, ubur-ubur, dan pantai alami.</p>
+          <a href="derawan.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="alam">
+        <img src="foto projek/sungai tanjung p.jpeg" alt="Tanjung Puting" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Tanjung Puting</h3>
+          <p class="spot-desc">Ekowisata melihat orangutan di habitat alami.</p>
+          <a href="tanjung-puting.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="pantai">
+        <img src="foto projek/vihara bangka.jpg" alt="Belitung" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Belitung</h3>
+          <p class="spot-desc">Formasi batu granit dan pantai cantik.</p>
+          <a href="belitung.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="spot-card" data-category="alam">
+        <img src="foto projek/rinjani kawah.jpg" alt="Rinjani" class="spot-img">
+        <div class="spot-content">
+          <h3 class="spot-title">Gunung Rinjani</h3>
+          <p class="spot-desc">Trekking menantang dengan pemandangan kawah indah.</p>
+          <a href="rinjani.html" class="btn btn-secondary">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h3>WisataKu</h3>
+          <p>Jelajahi keindahan Indonesia bersama kami</p>
+        </div>
+        <div class="footer-links">
+          <h3>Destinasi</h3>
+          <ul>
+            <li><a href="destinations/bali.html">Bali</a></li>
+            <li><a href="destinations/raja-ampat.html">Raja Ampat</a></li>
+            <li><a href="destinations/borobudur.html">Borobudur</a></li>
+            <li><a href="destinations.html">Semua Destinasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Layanan</h3>
+          <ul>
+            <li><a href="packages.html">Paket Wisata</a></li>
+            <li><a href="transportation.html">Transportasi</a></li>
+            <li><a href="accommodation.html">Akomodasi</a></li>
+            <li><a href="guides.html">Pemandu Wisata</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Informasi</h3>
+          <ul>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('dest-search');
+    const cards = Array.from(document.querySelectorAll('.spot-card'));
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      cards.forEach(c => {
+        const title = c.querySelector('.spot-title').textContent.toLowerCase();
+        const desc = c.querySelector('.spot-desc').textContent.toLowerCase();
+        c.style.display = (title.includes(q) || desc.includes(q)) ? '' : 'none';
+      });
+    });
+
+    function filterByHash() {
+      const hash = window.location.hash.replace('#','');
+      if (!hash) {
+        cards.forEach(c => c.style.display = '');
+        return;
+      }
+      cards.forEach(c => {
+        const cats = (c.dataset.category || '').split(/\s+/);
+        c.style.display = cats.includes(hash) ? '' : 'none';
+      });
+      // scroll to grid to emphasize filtered results
+      const grid = document.getElementById('dest-grid');
+      if (grid) grid.scrollIntoView({behavior: 'smooth'});
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      filterByHash();
+      // also react to hash changes
+      window.addEventListener('hashchange', filterByHash);
+    });
+  </script>
+</body>
+</html>

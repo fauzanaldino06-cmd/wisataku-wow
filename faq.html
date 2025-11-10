@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - WisataKu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .faq-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+        }
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .faq-question h4 { margin: 0; }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.28s ease, padding 0.28s ease;
+            padding: 0 0;
+        }
+        .faq-item.open .faq-answer {
+            padding: 0.75rem 0 1.25rem 0;
+            max-height: 400px;
+        }
+        .faq-toggle {
+            background: none;
+            border: 1px solid var(--primary, #0d6efd);
+            color: var(--primary, #0d6efd);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+        }
+        @media (max-width:600px){ .faq-container{ padding:1rem } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">WisataKu</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="destinations.html">Destinasi</a></li>
+                        <li><a href="spotlights.html">Spotlight</a></li>
+                        <li><a href="packages.html">Paket</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="faq-container">
+            <header style="text-align:center; margin-bottom:1.25rem;">
+                <h1>FAQ - Pertanyaan yang Sering Diajukan</h1>
+                <p>Temukan jawaban cepat untuk pertanyaan umum seputar pemesanan, pembayaran, dan perjalanan.</p>
+            </header>
+
+            <section class="faq-list">
+                <article class="faq-item">
+                    <div class="faq-question">
+                        <h4>Bagaimana cara melakukan booking?</h4>
+                        <button class="faq-toggle">Lihat</button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Untuk melakukan booking, buka halaman <a href="booking.html">Booking</a>, pilih destinasi, paket, tanggal, durasi, dan jumlah peserta, lalu isi data pemesan dan kirim. Kami akan menghubungi Anda untuk konfirmasi lebih lanjut.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <div class="faq-question">
+                        <h4>Metode pembayaran apa yang tersedia?</h4>
+                        <button class="faq-toggle">Lihat</button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kami menerima transfer bank dan pembayaran melalui e-wallet populer (OVO, GoPay, Dana). Untuk pemesanan grup atau paket khusus, silakan hubungi tim kami untuk opsi pembayaran tambahan.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <div class="faq-question">
+                        <h4>Apakah ada kebijakan pembatalan (cancellation)?</h4>
+                        <button class="faq-toggle">Lihat</button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kebijakan pembatalan tergantung paket. Umumnya pembatalan sebelum 14 hari dikenakan biaya administrasi kecil, sedangkan pembatalan mendadak (kurang dari 7 hari) dapat dikenakan biaya lebih besar. Detail lengkap akan diinformasikan saat konfirmasi pemesanan.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <div class="faq-question">
+                        <h4>Apakah ada diskon untuk rombongan?</h4>
+                        <button class="faq-toggle">Lihat</button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kami sering menyediakan harga khusus untuk grup. Diskon tergantung jumlah peserta dan paket. Silakan hubungi tim penjualan kami dengan detail jumlah peserta agar kami bisa memberikan penawaran terbaik.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <div class="faq-question">
+                        <h4>Dapatkah itinerary disesuaikan (custom)?</h4>
+                        <button class="faq-toggle">Lihat</button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, banyak paket kami dapat dikustomisasi. Untuk permintaan khusus seperti akomodasi, aktivitas tambahan, atau kebutuhan diet, hubungi kami dan tim perencana akan menyusun itinerary sesuai permintaan Anda.</p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <div class="faq-question">
+                        <h4>Apa saja yang perlu dibawa saat berangkat?</h4>
+                        <button class="faq-toggle">Lihat</button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bawa identitas (KTP/paspor), pakaian sesuai cuaca, obat pribadi, charger, dan perlengkapan khusus jika diperlukan (mis. snorkeling gear jika tidak tersedia). Kami akan mengirimkan email pra-keberangkatan dengan daftar lengkap.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <div class="faq-question">
+                        <h4>Bagaimana cara menghubungi layanan pelanggan?</h4>
+                        <button class="faq-toggle">Lihat</button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda dapat menghubungi kami melalui halaman <a href="contact.html">Kontak</a> atau email ke <strong>info@wisataku.example</strong>. Untuk respon cepat, kontak telepon yang tercantum di footer juga tersedia pada jam kerja.</p>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>WisataKu</h3>
+                    <p>Jelajahi keindahan Indonesia bersama kami</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Destinasi</h3>
+                    <ul>
+                        <li><a href="destinations/bali.html">Bali</a></li>
+                        <li><a href="destinations/raja-ampat.html">Raja Ampat</a></li>
+                        <li><a href="destinations/borobudur.html">Borobudur</a></li>
+                        <li><a href="destinations.html">Semua Destinasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="packages.html">Paket Wisata</a></li>
+                        <li><a href="transportation.html">Transportasi</a></li>
+                        <li><a href="accommodation.html">Akomodasi</a></li>
+                        <li><a href="guides.html">Pemandu Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple accordion for FAQ
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                const btn = item.querySelector('.faq-toggle');
+                const question = item.querySelector('.faq-question');
+                function toggle() {
+                    const isOpen = item.classList.contains('open');
+                    // Toggle this item
+                    item.classList.toggle('open', !isOpen);
+                }
+                btn.addEventListener('click', toggle);
+                question.addEventListener('click', (e) => {
+                    if (e.target !== btn && !btn.contains(e.target)) toggle();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

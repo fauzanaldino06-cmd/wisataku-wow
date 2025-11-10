@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="thomyorke.jpg" type="image/x-icon">
+    <title>Booking Wisata - WisataKu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .booking-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .booking-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .booking-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .package-select {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .package-option {
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .package-option:hover {
+            border-color: var(--primary);
+        }
+        
+        .package-option.selected {
+            border-color: var(--primary);
+            background: #f0f7ff;
+        }
+        
+        .price-summary {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+        }
+        
+        .price-total {
+            border-top: 2px solid #ddd;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (sama seperti index.html) -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">WisataKu</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="destinations.html">Destinasi</a></li>
+                        <li><a href="spotlights.html">Spotlight</a></li>
+                        <li><a href="packages.html">Paket</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Booking Form -->
+    <div class="container">
+        <div class="booking-container">
+            <div class="booking-header">
+                <h1>Booking Perjalanan</h1>
+                <p>Isi form di bawah untuk memulai petualangan Anda</p>
+            </div>
+
+            <form class="booking-form" id="bookingForm">
+                <!-- Destinasi -->
+                <div class="form-group">
+                    <label>Destinasi</label>
+                    <select id="destination" required>
+                        <option value="">Pilih Destinasi</option>
+                        <option value="bali">Bali - Nusa Dua</option>
+                        <option value="raja-ampat">Raja Ampat</option>
+                        <option value="borobudur">Borobudur</option>
+                        <option value="bromo">Gunung Bromo</option>
+                        <option value="komodo">Pulau Komodo</option>
+                        <option value="toba">Danau Toba</option>
+                        <option value="wakatobi">Wakatobi</option>
+                        <option value="dieng">Dieng Plateau</option>
+                        <option value="derawan">Kepulauan Derawan</option>
+                    </select>
+                </div>
+
+                <!-- Tanggal -->
+                <div class="form-group">
+                    <label>Tanggal Perjalanan</label>
+                    <input type="date" required min="2025-10-28">
+                </div>
+
+                <!-- Durasi -->
+                <div class="form-group">
+                    <label>Durasi</label>
+                    <select id="duration" required>
+                        <option value="3">3 Hari 2 Malam</option>
+                        <option value="4">4 Hari 3 Malam</option>
+                        <option value="5">5 Hari 4 Malam</option>
+                        <option value="7">7 Hari 6 Malam</option>
+                    </select>
+                </div>
+
+                <!-- Jumlah Peserta -->
+                <div class="form-group">
+                    <label>Jumlah Peserta</label>
+                    <input type="number" id="participants" min="1" value="10" required>
+                </div>
+
+                <!-- Pilihan Paket -->
+                <div class="form-group">
+                    <label>Pilih Paket</label>
+                    <div class="package-select">
+                        <div class="package-option" data-package="basic">
+                            <h4>Basic</h4>
+                            <p>Hotel 3⭐, transport standar</p>
+                            <div class="price">Mulai Rp 2jt/orang</div>
+                        </div>
+                        <div class="package-option" data-package="comfort">
+                            <h4>Comfort</h4>
+                            <p>Hotel 4⭐, transport AC</p>
+                            <div class="price">Mulai Rp 3,5jt/orang</div>
+                        </div>
+                        <div class="package-option" data-package="luxury">
+                            <h4>Luxury</h4>
+                            <p>Hotel 5⭐, private transport</p>
+                            <div class="price">Mulai Rp 5jt/orang</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Pemesan -->
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>No. HP</label>
+                    <input type="tel" required>
+                </div>
+
+                <!-- Ringkasan Harga -->
+                <div class="price-summary">
+                    <h3>Ringkasan Harga</h3>
+                    <div class="price-row">
+                        <span>Harga Paket</span>
+                        <span id="packagePrice">Rp 0</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Durasi</span>
+                        <span id="durationText">3 Hari 2 Malam</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Jumlah Peserta</span>
+                        <span id="participantCount">1 orang</span>
+                    </div>
+                    <div class="price-row price-total">
+                        <span>Total</span>
+                        <span id="totalPrice">Rp 0</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Booking Sekarang</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer (sama seperti index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>WisataKu</h3>
+                    <p>Jelajahi keindahan Indonesia bersama kami</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Destinasi</h3>
+                    <ul>
+                        <li><a href="destinations/bali.html">Bali</a></li>
+                        <li><a href="destinations/raja-ampat.html">Raja Ampat</a></li>
+                        <li><a href="destinations/borobudur.html">Borobudur</a></li>
+                        <li><a href="destinations.html">Semua Destinasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="packages.html">Paket Wisata</a></li>
+                        <li><a href="transportation.html">Transportasi</a></li>
+                        <li><a href="accommodation.html">Akomodasi</a></li>
+                        <li><a href="guides.html">Pemandu Wisata</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <center><p>&copy; 2025 wisata coconut</p></center>
+    </footer>
+
+    <script>
+        // Enhanced booking logic: price updates per package, duration and participant count
+        const form = document.getElementById('bookingForm');
+        const packages = document.querySelectorAll('.package-option');
+        const packagePrice = document.getElementById('packagePrice');
+        const totalPrice = document.getElementById('totalPrice');
+        const durationSelect = document.getElementById('duration');
+        const durationText = document.getElementById('durationText');
+        const participantsInput = document.getElementById('participants');
+        const participantCount = document.getElementById('participantCount');
+
+        // Helper: format number to Indonesian currency style
+        function formatPrice(price) {
+            return 'Rp ' + Math.round(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+
+        // Calculate and render prices
+        function calculatePrice() {
+            const selectedPackage = document.querySelector('.package-option.selected');
+            const duration = parseInt(durationSelect.value, 10) || 3;
+            const participants = parseInt(participantsInput.value, 10) || 1;
+
+            if (!selectedPackage) {
+                packagePrice.textContent = 'Rp 0 / orang';
+                totalPrice.textContent = 'Rp 0';
+                participantCount.textContent = `${participants} orang`;
+                return;
+            }
+
+            // base price is defined as price per person for the default 3-day package
+            let basePricePerPerson = 0;
+            switch (selectedPackage.dataset.package) {
+                case 'basic': basePricePerPerson = 2000000; break;
+                case 'comfort': basePricePerPerson = 3500000; break;
+                case 'luxury': basePricePerPerson = 5000000; break;
+            }
+
+            // scale price linearly by duration relative to the baseline 3 days
+            const durationMultiplier = duration / 3;
+
+            const pricePerPerson = basePricePerPerson * durationMultiplier;
+            const total = pricePerPerson * participants;
+
+            packagePrice.textContent = formatPrice(pricePerPerson) + ' / orang';
+            durationText.textContent = `${duration} Hari ${Math.max(0, duration - 1)} Malam`;
+            participantCount.textContent = `${participants} orang`;
+            totalPrice.textContent = formatPrice(total);
+        }
+
+        // Package click handlers
+        packages.forEach(pkg => {
+            pkg.addEventListener('click', () => {
+                packages.forEach(p => p.classList.remove('selected'));
+                pkg.classList.add('selected');
+                calculatePrice();
+            });
+        });
+
+        // Duration change
+        durationSelect.addEventListener('change', (e) => {
+            durationText.textContent = `${e.target.value} Hari ${Math.max(0, e.target.value - 1)} Malam`;
+            calculatePrice();
+        });
+
+        // Participants change
+        participantsInput.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value, 10);
+            if (isNaN(val) || val < 1) {
+                e.target.value = 1;
+            }
+            calculatePrice();
+        });
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simple confirmation - could be replaced with AJAX or server call
+            alert('Terima kasih! Booking Anda telah kami terima. Kami akan menghubungi Anda segera.');
+        });
+
+        // Auto-select package from URL (if provided) and destination param handling
+        const urlParams = new URLSearchParams(window.location.search);
+        const dest = urlParams.get('dest');
+        if (dest) {
+            const destSelect = document.getElementById('destination');
+            if (destSelect) destSelect.value = dest;
+        }
+
+        // Initialize: select first package if none selected and calculate initial prices
+        document.addEventListener('DOMContentLoaded', () => {
+            const initiallySelected = document.querySelector('.package-option.selected');
+            if (!initiallySelected && packages.length) {
+                packages[0].classList.add('selected');
+            }
+            // Ensure participant display and summary are correct on load
+            participantCount.textContent = `${participantsInput.value || 1} orang`;
+            calculatePrice();
+        });
+    </script>
+</body>
+</html>
